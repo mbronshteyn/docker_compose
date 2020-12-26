@@ -5,5 +5,5 @@
 
   You may need to increase your Docker memory size.  I set mine to 12G
 
-  es6 kibana port: 5601
+  es6 kibana port: 5601<br>
   es7 kibana port: 15601

@@ -1,0 +1,36 @@
+version: '3.1'
+
+services:
+  es7:
+   image: docker.elastic.co/elasticsearch/elasticsearch:7.10.1
+   container_name: elasticsearch-7
+   environment:
+    - discovery.type=single-node
+    - node.name=elasticsearch-7
+   ports:
+    - "19200:9200"
+    - "19300:9300"
+   volumes:
+    - elasticsearch-data:/usr/share/elasticsearch/data
+   networks:
+    - docker-network-7
+
+  kibana:
+   image: docker.elastic.co/kibana/kibana:7.10.1
+   container_name: kibana_es7
+   environment:
+    ELASTICSEARCH_HOSTS: http://elasticsearch-7:9200
+   ports:
+    - "15601:5601"
+   depends_on:
+    - es7
+   networks:
+    - docker-network-7
+
+networks:
+  docker-network-7:
+    driver: bridge
+
+volumes:
+  elasticsearch-data:
+

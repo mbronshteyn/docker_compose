@@ -9,7 +9,6 @@ services:
     - node.name=elasticsearch-7
    ports:
     - "19200:9200"
-    - "19300:9300"
    volumes:
     - elasticsearch-data:/usr/share/elasticsearch7/data
    networks:

@@ -10,7 +10,7 @@ services:
    ports:
     - "19200:9200"
    volumes:
-    - elasticsearch-data:/usr/share/elasticsearch7/data
+    - elasticsearch-data:/usr/share/elasticsearch/data
    networks:
     - docker-network-7
 

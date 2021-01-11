@@ -15,6 +15,8 @@ services:
         hard: -1
     ports:
       - "9200:9200"
+    volumes:
+      - ./data_es6:/usr/share/elasticsearch/data
   kibana:
     image: docker.elastic.co/kibana/kibana:6.3.2
     ports:

@@ -15,7 +15,6 @@ services:
         hard: -1
     networks:
       - docker-compose-es6
-
     ports:
       - "29200:9200"
     volumes:

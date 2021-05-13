@@ -13,11 +13,23 @@ services:
       memlock:
         soft: -1
         hard: -1
+    networks:
+      - docker-compose-es6
+
     ports:
       - "29200:9200"
     volumes:
       - ./data_es6:/usr/share/elasticsearch/data
+
   kibana:
     image: docker.elastic.co/kibana/kibana:6.3.2
+    networks:
+      - docker-compose-es6
+    depends_on:
+      - elasticsearch
     ports:
       - "25601:5601"
+
+networks:
+  docker-compose-es6:
+    driver: bridge
